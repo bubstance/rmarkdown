@@ -2,12 +2,28 @@
 title: \huge \textsc{Test Document}
 subtitle: \textit{a small sample of \textbf{R Markdown}}
 author: Kelly G. Roberts \textit{(kgr)}
-date: October, 2022
 bibliography: ./uni.bib
-output: pdf_document
+date: \today
+output:
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+    latex_engine: xelatex
+    number_sections: yes
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{pdfpages}
+- \usepackage{titling}
+    \renewcommand\maketitlehooka{\null\mbox{}\vfill}
+    \renewcommand\maketitlehookd{\vfill\null}
+- \usepackage{lipsum}
+- \usepackage{appendix}
+- \pagenumbering{gobble}
 ---
-
+\newpage
+\pagenumbering{arabic}
 \tableofcontents
+\newpage
 
 # Overview
 \section{Introduction}
@@ -162,5 +178,7 @@ Perhaps another list?
 1. Third
 
 As stated by @aissen99, blah blah blah words words words.
+
+\newpage
 
 # References
