@@ -14,4 +14,5 @@ It's really neat.
           * `sudo emerge -av R`
   * `sudo R`
   * `install.packages('rmarkdown')`
+  * `install.packages('bookdown')`
   * `install.packages('tufte')`
