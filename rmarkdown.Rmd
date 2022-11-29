@@ -74,23 +74,26 @@ we can now call our new entry by its name, which in this case is `@aissen99`. Na
 can be whatever you choose that is easy to remember for you. I chose to use the
 author's last name and the year of publication.
 
-$$\begin{array}{ccc}
-x_{11} & x_{12} & x_{13}\\
-x_{21} & x_{22} & x_{23}
-\end{array}$$
+$$ \begin{array}{ccc}
+    x_{11} & x_{12} & x_{13}\\
+    x_{21} & x_{22} & x_{23}
+ \end{array} $$
 
-$$X = \begin{bmatrix}1 & x_{1}\\
-1 & x_{2}\\
-1 & x_{3}
-\end{bmatrix}$$
+$$ X = \begin{bmatrix}
+        1 & x_{1}\\
+        1 & x_{2}\\
+        1 & x_{3}
+     \end{bmatrix} $$
 
-$$\Theta = \begin{pmatrix}\alpha & \beta\\
-\gamma & \delta
-\end{pmatrix}$$
+$$ \Theta = \begin{pmatrix}
+        \alpha & \beta\\
+        \gamma & \delta
+     \end{pmatrix} $$
 
-$$\begin{vmatrix}a & b\\
-c & d
-\end{vmatrix}=ad-bc$$
+$$ \begin{vmatrix}
+    a & b\\
+    c & d
+ \end{vmatrix}=ad-bc $$
 
 ## Look at this table {-}
 |Model             |MPG  |Cyl |Disp|HP  |
@@ -101,17 +104,5 @@ c & d
 |Hornet 4 Drive    |21.4 |6   |258 |110 |
 |Hornet Sportabout |18.7 |8   |360 |175 |
 |Valiant           |18.1 |6   |225 |105 |
-
-## Lists: Nature's Organizer {-}
-1. First
-    * subfirst
-    * submore
-    * subagain
-1. Second
-    * subsecond
-        * deeper
-            * still
-    * subsecondsecond
-1. Third
 
 # References {-}
