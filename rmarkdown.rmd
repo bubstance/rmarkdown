@@ -2,56 +2,38 @@
 # Preamble
 title: \huge \textsc{Test Document}
 subtitle: \textit{a small sample of \textbf{R Markdown}}
-
 author: Kelly G. Roberts
 date: \today
-
-bibliography: ./uni.bib
-
-header-includes:
-  \pagenumbering{gobble}
-  \usepackage{appendix}
-  \usepackage{booktabs}
-  \usepackage{indentfirst}
-  \usepackage{lipsum}
-  \usepackage{pdfpages}
-  \usepackage{titling}
-    \renewcommand\maketitlehooka{\null\mbox{}\vfill}
-    \renewcommand\maketitlehookd{\vfill\null}
-
+site: bookdown::bookdown_site
 output:
-  pdf_document:
-    latex_engine: xelatex
-    highlight: zenburn
-    number_sections: yes
+  bookdown::pdf_book:
+      citation_package: natbib
+      latex_engine: xelatex
+      toc: true
+      toc_depth: 4
+documentclass: book
+# classoption: [openany,oneside]
+bibliography: ref.bib
+biblio-style: apalike
+papersize: a4
+geometry: 'left=1in, right=1in, top=1in, bottom=1in, twoside=false'
+include-before:
+- \stepcounter{page}
 
-# thanks: To my sister, Banana. Love ya, Nans.
+# command to compile in R CLI:
+# `bookdown::render_book("rmarkdown.rmd", "bookdown::pdf_book")`
 ---
 
-<!-- some extra junk to make the title page, toc, and numbering show up the way I want -->
-\newpage
-\pagenumbering{arabic}
-\tableofcontents
-\newpage
-
-
-
-\abstract{Showing various ways that R Markdown allows for combining statistical analysis and LaTeX
-code into a cohesive whole.}
-
-
-
 # Overview
-So, let's talk about this whole \LaTeX{} thing, shall we?
 
-## On the Subject of \LaTeX
+## On the Subject of \LaTeX {-}
 This article serves as a brief overview of the \LaTeX{} document preparation
 system coupled with examples of the complex formatting it can help achieve. It
 must be emphasized that this is only a basic guide to help familiarize you with
 the power of using \LaTeX{} as a means to prepare professional-level
 documentation.
 
-### Okay... so what can I, like, *do* with it?
+### Okay... so what can I, like, *do* with it? {-}
 Honestly? Whatever you want! You can do basically everything you could ever need
 to do when it comes to formatting a document in a professional and consistent way.
 This is one of the key benefits of using \LaTeX{}; as long as you give the appropriate
@@ -61,14 +43,12 @@ tried to write a mathematical formula in something like Word? It can be an absol
 nightmare to get the formatting correct without destroying the other text in the
 document.
 
-\
-\indent Here's an example of a continued fraction, something that would be
+Here's an example of a continued fraction, something that would be
 \emph{exceptionally} difficult to write out in Word:
 
 $$ e=2+\frac{1}{1+\frac{1}{2+\frac{2}{3+\frac{3}{4+\frac{4}{5+\ddots}}}}} $$
 
-\
-\indent Now, that may look like it would be complicated to input into your text editor,
+Now, that may look like it would be complicated to input into your text editor,
 but I can assure you that \LaTeX{} makes this quite easy; all it takes is
 learning some basic commands.
 
@@ -76,24 +56,43 @@ learning some basic commands.
 
 # Examples
 
-> "I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important.
+> "I will, in fact, claim that the difference between a bad programmer and a good one is whether he
+considers his code or his data structures more important.
 > Bad programmers worry about the code.
 > Good programmers worry about data structures and their relationships."
 >
 > `r tufte::quote_footer('--- Linus Torvalds')`
 
-\
-\indent This time we actually used another package that we grabbed within our root *R* environment (`sudo R`) followed by the subcommand `install.packages('tufte')`. It allows us to put neat little footers into our block quotes. Neat, huh?
+This time we actually used another package that we grabbed within our root *R* environment
+(`sudo R`) followed by the subcommand `install.packages('tufte')`. It allows us to put neat little
+footers into our block quotes. Neat, huh?
 
-\
-\indent As stated by @aissen99, blah blah blah words words words. As you can see,
+As stated by @aissen99, blah blah blah words words words. As you can see,
 all of the information that will end up in our bibliography is here, including the
 names of editors, the publisher, and the year of publication. Using this format,
 we can now call our new entry by its name, which in this case is `@aissen99`. Names
 can be whatever you choose that is easy to remember for you. I chose to use the
 author's last name and the year of publication.
 
-## Look at this table
+$$\begin{array}{ccc}
+x_{11} & x_{12} & x_{13}\\
+x_{21} & x_{22} & x_{23}
+\end{array}$$
+
+$$X = \begin{bmatrix}1 & x_{1}\\
+1 & x_{2}\\
+1 & x_{3}
+\end{bmatrix}$$
+
+$$\Theta = \begin{pmatrix}\alpha & \beta\\
+\gamma & \delta
+\end{pmatrix}$$
+
+$$\begin{vmatrix}a & b\\
+c & d
+\end{vmatrix}=ad-bc$$
+
+## Look at this table {-}
 |Model             |MPG  |Cyl |Disp|HP  |
 |:-----------------|----:|---:|---:|---:|
 |Mazda RX4         |21.0 |6   |160 |110 |
@@ -103,7 +102,7 @@ author's last name and the year of publication.
 |Hornet Sportabout |18.7 |8   |360 |175 |
 |Valiant           |18.1 |6   |225 |105 |
 
-## Lists: Nature's Organizer
+## Lists: Nature's Organizer {-}
 1. First
     * subfirst
     * submore
@@ -115,38 +114,4 @@ author's last name and the year of publication.
     * subsecondsecond
 1. Third
 
-
-
-# How about that **R**, though?
-
-\
-Here's something cool that you can do with code blocks: evaluate R code.
-
-```{r}
-2+2
-```
-
-\
-In this case, we evaluated the chunk `2+2` into the output shown above.
-
-\
-How about some more complicated equations?
-
-```{r}
-5*40
-```
-
-```{r}
-3^9
-```
-
-```{r}
-values <- rnorm(5)
-values
-```
-
-\newpage
-
-
-
-# References
+# References {-}
